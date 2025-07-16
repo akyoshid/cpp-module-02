@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 11:11:00 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/07/16 19:32:42 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/07/16 19:42:25 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,10 @@ Fixed Fixed::operator*(Fixed& rhs) const {
 }
 
 Fixed Fixed::operator/(Fixed& rhs) const {
+    if (rhs.raw == 0) {
+        std::cerr << "Error: Division by zero" << std::endl;
+        return Fixed();
+    }
     Fixed result;
     long long ll_raw
         = (static_cast<long long>(raw) << fractional_bits)
