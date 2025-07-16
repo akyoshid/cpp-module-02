@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 11:11:00 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/07/16 20:35:33 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/07/16 21:01:01 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,28 @@ Fixed Fixed::operator/(const Fixed& rhs) const {
             / static_cast<long long>(rhs.raw);
     result.raw = static_cast<int>(ll_raw);
     return result;
+}
+
+Fixed Fixed::operator++() {
+    ++raw;
+    return *this;
+}
+
+Fixed Fixed::operator++(int) {
+    Fixed ret = *this;
+    ++(*this);
+    return ret;
+}
+
+Fixed Fixed::operator--() {
+    --raw;
+    return *this;
+}
+
+Fixed Fixed::operator--(int) {
+    Fixed ret = *this;
+    --(*this);
+    return ret;
 }
 
 int Fixed::getRawBits() const {

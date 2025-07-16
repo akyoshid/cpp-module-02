@@ -6,12 +6,12 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 11:11:08 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/07/16 19:46:21 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/07/16 21:04:25 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EX01_FIXED_HPP_
-# define EX01_FIXED_HPP_
+#ifndef EX02_FIXED_HPP_
+# define EX02_FIXED_HPP_
 
 # include <iostream>
 
@@ -33,6 +33,10 @@ class Fixed {
     Fixed operator-(const Fixed& rhs) const;
     Fixed operator*(const Fixed& rhs) const;
     Fixed operator/(const Fixed& rhs) const;
+    Fixed operator++();
+    Fixed operator++(int);
+    Fixed operator--();
+    Fixed operator--(int);
     int getRawBits() const;
     void setRawBits(const int raw);
     float toFloat() const;
