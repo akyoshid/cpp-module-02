@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 11:11:00 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/07/16 21:01:01 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/07/16 22:11:17 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,10 +102,10 @@ Fixed Fixed::operator-(const Fixed& rhs) const {
 
 Fixed Fixed::operator*(const Fixed& rhs) const {
     Fixed result;
-    long long ll_raw
-        = (static_cast<long long>(raw) * static_cast<long long>(rhs.raw))
+    int64_t temp
+        = (static_cast<int64_t>(raw) * static_cast<int64_t>(rhs.raw))
             >> fractional_bits;
-    result.raw = static_cast<int>(ll_raw);
+    result.raw = static_cast<int>(temp);
     return result;
 }
 
@@ -115,10 +115,10 @@ Fixed Fixed::operator/(const Fixed& rhs) const {
         return Fixed();
     }
     Fixed result;
-    long long ll_raw
-        = (static_cast<long long>(raw) << fractional_bits)
-            / static_cast<long long>(rhs.raw);
-    result.raw = static_cast<int>(ll_raw);
+    int64_t temp
+        = (static_cast<int64_t>(raw) << fractional_bits)
+            / static_cast<int64_t>(rhs.raw);
+    result.raw = static_cast<int>(temp);
     return result;
 }
 
@@ -158,6 +158,34 @@ float Fixed::toFloat() const {
 
 int Fixed::toInt() const {
     return raw >> fractional_bits;
+}
+
+Fixed& Fixed::min(Fixed& x, Fixed& y) {
+    if (x.raw <= y.raw)
+        return x;
+    else
+        return y;
+}
+
+const Fixed& Fixed::min(const Fixed& x, const Fixed& y) {
+    if (x.raw <= y.raw)
+        return x;
+    else
+        return y;
+}
+
+Fixed& Fixed::max(Fixed& x, Fixed& y) {
+    if (x.raw >= y.raw)
+        return x;
+    else
+        return y;
+}
+
+const Fixed& Fixed::max(const Fixed& x, const Fixed& y) {
+    if (x.raw >= y.raw)
+        return x;
+    else
+        return y;
 }
 
 std::ostream& operator<<(std::ostream& stream, const Fixed& fixed) {

@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 11:11:08 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/07/16 21:04:25 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/07/16 22:12:44 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ class Fixed {
     void setRawBits(const int raw);
     float toFloat() const;
     int toInt() const;
+    static Fixed& min(Fixed& x, Fixed& y);
+    static const Fixed& min(const Fixed& x, const Fixed& y);
+    static Fixed& max(Fixed& x, Fixed& y);
+    static const Fixed& max(const Fixed& x, const Fixed& y);
+
  private:
     int raw;
     static const int fractional_bits = 8;
