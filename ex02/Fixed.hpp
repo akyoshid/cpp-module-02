@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 11:11:08 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/07/16 18:20:03 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/07/16 19:03:56 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ class Fixed {
     bool operator<=(Fixed& rhs) const;
     bool operator==(Fixed& rhs) const;
     bool operator!=(Fixed& rhs) const;
+    Fixed operator+(Fixed& rhs) const;
+    Fixed operator-(Fixed& rhs) const;
+    Fixed operator*(Fixed& rhs) const;
+    Fixed operator/(Fixed& rhs) const;
     int getRawBits() const;
     void setRawBits(const int raw);
     float toFloat() const;
