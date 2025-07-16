@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 11:11:00 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/07/16 17:44:43 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/07/16 18:22:55 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,30 @@ Fixed& Fixed::operator=(const Fixed& src) {
 
 Fixed::~Fixed() {
     std::cout << "Destructor called" << std::endl;
+}
+
+bool Fixed::operator>(Fixed& rhs) const {
+    return raw > rhs.raw;
+}
+
+bool Fixed::operator<(Fixed& rhs) const {
+    return raw < rhs.raw;
+}
+
+bool Fixed::operator>=(Fixed& rhs) const {
+    return raw >= rhs.raw;
+}
+
+bool Fixed::operator<=(Fixed& rhs) const {
+    return raw <= rhs.raw;
+}
+
+bool Fixed::operator==(Fixed& rhs) const {
+    return raw == rhs.raw;
+}
+
+bool Fixed::operator!=(Fixed& rhs) const {
+    return raw != rhs.raw;
 }
 
 int Fixed::getRawBits() const {
