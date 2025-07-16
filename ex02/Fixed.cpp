@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 11:11:00 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/07/16 19:42:25 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/07/16 20:35:33 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,43 +64,43 @@ Fixed& Fixed::operator=(const Fixed& src) {
 Fixed::~Fixed() {
 }
 
-bool Fixed::operator>(Fixed& rhs) const {
+bool Fixed::operator>(const Fixed& rhs) const {
     return raw > rhs.raw;
 }
 
-bool Fixed::operator<(Fixed& rhs) const {
+bool Fixed::operator<(const Fixed& rhs) const {
     return raw < rhs.raw;
 }
 
-bool Fixed::operator>=(Fixed& rhs) const {
+bool Fixed::operator>=(const Fixed& rhs) const {
     return raw >= rhs.raw;
 }
 
-bool Fixed::operator<=(Fixed& rhs) const {
+bool Fixed::operator<=(const Fixed& rhs) const {
     return raw <= rhs.raw;
 }
 
-bool Fixed::operator==(Fixed& rhs) const {
+bool Fixed::operator==(const Fixed& rhs) const {
     return raw == rhs.raw;
 }
 
-bool Fixed::operator!=(Fixed& rhs) const {
+bool Fixed::operator!=(const Fixed& rhs) const {
     return raw != rhs.raw;
 }
 
-Fixed Fixed::operator+(Fixed& rhs) const {
+Fixed Fixed::operator+(const Fixed& rhs) const {
     Fixed result;
     result.raw = raw + rhs.raw;
     return result;
 }
 
-Fixed Fixed::operator-(Fixed& rhs) const {
+Fixed Fixed::operator-(const Fixed& rhs) const {
     Fixed result;
     result.raw = raw - rhs.raw;
     return result;
 }
 
-Fixed Fixed::operator*(Fixed& rhs) const {
+Fixed Fixed::operator*(const Fixed& rhs) const {
     Fixed result;
     long long ll_raw
         = (static_cast<long long>(raw) * static_cast<long long>(rhs.raw))
@@ -109,7 +109,7 @@ Fixed Fixed::operator*(Fixed& rhs) const {
     return result;
 }
 
-Fixed Fixed::operator/(Fixed& rhs) const {
+Fixed Fixed::operator/(const Fixed& rhs) const {
     if (rhs.raw == 0) {
         std::cerr << "Error: Division by zero" << std::endl;
         return Fixed();
