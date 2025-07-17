@@ -15,7 +15,7 @@ SRC = \
 OBJ =		$(patsubst %.cpp,$(OBJ_DIR)%.o,$(SRC))
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -g
 
 RM = rm -f
 
