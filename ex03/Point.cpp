@@ -6,10 +6,11 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 10:47:21 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/07/17 11:30:20 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/07/17 15:20:26 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "Point.hpp"
 #include "Fixed.hpp"
 
@@ -31,4 +32,12 @@ Point& Point::operator=(const Point& src) {
 }
 
 Point::~Point() {
+}
+
+const Fixed& Point::get_x() const {
+    return x;
+}
+
+const Fixed& Point::get_y() const {
+    return y;
 }

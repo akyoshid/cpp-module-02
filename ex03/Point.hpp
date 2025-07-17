@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 10:47:35 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/07/17 10:59:50 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/07/17 13:23:55 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ class Point {
     Point(const Point& src);
     Point& operator=(const Point& src);
     ~Point();
+    const Fixed& get_x() const;
+    const Fixed& get_y() const;
  private:
     const Fixed x;
     const Fixed y;
