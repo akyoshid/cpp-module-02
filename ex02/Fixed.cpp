@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 11:11:00 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/07/16 22:11:17 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/07/17 17:28:33 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ Fixed::Fixed(const int i) : raw(0) {
     if (i > max_int) {
         std::cerr
             << "Warning: Integer overflow in Fixed constructor" << std::endl;
-        raw = max_int << fractional_bits;
+        raw = max_int * scaling_factor;
     } else if (i < min_int) {
         std::cerr
             << "Warning: Integer overflow in Fixed constructor" << std::endl;
-        raw = min_int << fractional_bits;
+        raw = min_int * scaling_factor;
     } else {
-        raw = i << fractional_bits;
+        raw = i * scaling_factor;
     }
 }
 
@@ -104,7 +104,7 @@ Fixed Fixed::operator*(const Fixed& rhs) const {
     Fixed result;
     int64_t temp
         = (static_cast<int64_t>(raw) * static_cast<int64_t>(rhs.raw))
-            >> fractional_bits;
+            / scaling_factor;
     result.raw = static_cast<int>(temp);
     return result;
 }
@@ -116,7 +116,7 @@ Fixed Fixed::operator/(const Fixed& rhs) const {
     }
     Fixed result;
     int64_t temp
-        = (static_cast<int64_t>(raw) << fractional_bits)
+        = (static_cast<int64_t>(raw) * scaling_factor)
             / static_cast<int64_t>(rhs.raw);
     result.raw = static_cast<int>(temp);
     return result;
@@ -157,7 +157,7 @@ float Fixed::toFloat() const {
 }
 
 int Fixed::toInt() const {
-    return raw >> fractional_bits;
+    return raw / scaling_factor;
 }
 
 Fixed& Fixed::min(Fixed& x, Fixed& y) {

@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 11:11:00 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/07/16 17:44:43 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/07/17 17:27:43 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ Fixed::Fixed(const int i) : raw(0) {
     if (i > max_int) {
         std::cerr
             << "Warning: Integer overflow in Fixed constructor" << std::endl;
-        raw = max_int << fractional_bits;
+        raw = max_int * scaling_factor;
     } else if (i < min_int) {
         std::cerr
             << "Warning: Integer overflow in Fixed constructor" << std::endl;
-        raw = min_int << fractional_bits;
+        raw = min_int * scaling_factor;
     } else {
-        raw = i << fractional_bits;
+        raw = i * scaling_factor;
     }
 }
 
@@ -85,7 +85,7 @@ float Fixed::toFloat() const {
 }
 
 int Fixed::toInt() const {
-    return raw >> fractional_bits;
+    return raw / scaling_factor;
 }
 
 std::ostream& operator<<(std::ostream& stream, const Fixed& fixed) {

@@ -6,7 +6,7 @@
 /*   By: akyoshid <akyoshid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 16:09:42 by akyoshid          #+#    #+#             */
-/*   Updated: 2025/07/17 16:23:02 by akyoshid         ###   ########.fr       */
+/*   Updated: 2025/07/17 17:31:08 by akyoshid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int main() {
     // Test const versions
     const Fixed cf(2.5f);
     const Fixed cg(8.75f);
+    std::cout << "cf=" << cf << ", cg=" << cg << std::endl;
     std::cout << "const min(cf, cg): " << Fixed::min(cf, cg)
         << " (expected: 2.5)" << std::endl;
     std::cout << "const max(cf, cg): " << Fixed::max(cf, cg)
